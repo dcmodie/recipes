@@ -3,6 +3,8 @@ import { useState } from 'react';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
+import useFetchImages from '../hooks/useFetchImages';
+import { Product } from '../hooks/useFetchRecipes';
 
 const style = {
   position: 'absolute' as 'absolute',
@@ -16,10 +18,14 @@ const style = {
   p: 4,
 };
 
-const Card: React.FC = ({ item }) => {
+const Card: React.FC<Product> = ({ item }: { item: Product }) => {
   const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
+  const handleOpen = () => {
+    reFetch();
+    setOpen(true);
+  };
   const handleClose = () => setOpen(false);
+  const { reFetch } = useFetchImages();
   return (
     <div>
       <div className="box" onClick={handleOpen}>
@@ -43,6 +49,11 @@ const Card: React.FC = ({ item }) => {
               {item.title}
               {item.title}
               {item.title}
+            </Typography>
+            <Typography>
+              <div className="modal-image">
+                <img src={item.image} className="modal-image" />
+              </div>
             </Typography>
           </Box>
         </Modal>

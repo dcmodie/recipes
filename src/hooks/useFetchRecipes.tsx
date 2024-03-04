@@ -7,7 +7,7 @@ interface User {
   completed: boolean;
 }
 
-interface Product {
+export interface Product {
   image: string;
   id: number;
   title: string;

@@ -19,6 +19,16 @@
 
 }
 
+div.modal-image {
+  margin: auto;
+  width: 50%;
+  margin-top:50px;
+}
+
+.modal-image{
+  width:100%
+}
+
 .box {
   background-color: #ffffff;
   color: #8e8c8c;
