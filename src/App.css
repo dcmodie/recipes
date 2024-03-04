@@ -4,9 +4,9 @@
   grid-gap: 10px;
 
 
-  border: 1px solid;
+
   margin: auto;
-  width: 50%;
+  width: 60%;
   padding: 10px;
 
 }
@@ -20,12 +20,34 @@
 }
 
 .box {
-  background-color: #ece5e5;
-  color: #fff;
+  background-color: #ffffff;
+  color: #8e8c8c;
+  border: 1px solid;
+  border-color:#e6e4e4;
   border-radius: 5px;
   padding: 20px;
   font-size: 100%;
+  box-shadow: 2px 2px 2px rgb(217, 215, 215);
+  height:200px;
   
+  
+}
+
+.title{
+  height:40px;
+  overflow-y: hidden;
+}
+
+.scrolling{
+  
+    margin: 20px 0px 0px 0px;
+    padding:0px 12px 0px 0px;
+    height: 100px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    text-align: justify;
+    
+
 }
 
 //grid-template-columns: repeat(4,1fr);

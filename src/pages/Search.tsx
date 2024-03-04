@@ -1,23 +1,28 @@
 import useFetchRecipes from '../hooks/useFetchRecipes';
+import Card from '../components/Card';
+import SearchBar from '../components/SearchBar';
 const Search = () => {
   const { data, isLoading, error, reFetch } = useFetchRecipes();
 
-  const handleSearch = () => {
-    //reFetch (search term)
-    reFetch();
+  // const handleSearch = () => {
+  //   reFetch();
+  // };
+
+  const renderData = () => {
+    if (!data) return;
+    if (isLoading) {
+      return <div>loading... </div>;
+    }
+    return data.map((item) => {
+      return <Card item={item} key={item.id} />;
+    });
   };
 
   return (
     <div>
-      <div className="search-bar">search bar</div>
-      <button onClick={handleSearch}>click me </button>
-      <div className="search-page-grid">
-        <div className="box">a</div>
-        <div className="box">a</div>
-        <div className="box">a</div>
-        <div className="box">a</div>
-        <div className="box">a</div>
-      </div>
+      <SearchBar reFetch={reFetch} />
+
+      <div className="search-page-grid">{renderData()}</div>
     </div>
   );
 };
