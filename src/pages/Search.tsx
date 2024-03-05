@@ -21,15 +21,14 @@ const Search = () => {
     });
   };
 
+  const handleFetch = () => {
+    console.log('calling fetch from ');
+    //reFetch('beef');
+  };
+
   return (
     <div>
-      <button
-        onClick={() => {
-          fetch();
-        }}
-      >
-        click
-      </button>
+      <button onClick={handleFetch}>click</button>
       <SearchBar reFetch={reFetch} />
 
       <div className="search-page-grid">{renderData()}</div>

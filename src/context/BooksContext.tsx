@@ -1,4 +1,5 @@
 import { createContext, useState } from 'react';
+import axios from 'axios';
 
 const BooksContext = createContext();
 
@@ -7,17 +8,12 @@ function Provider({ children }: { children: React.FC }) {
   const fetch = async () => {
     console.log('fetchinggg');
     try {
-      //      const result = await fetch('https://jsonplaceholder.typicode.com/todos/')
-      const result = await fetch(
-        'https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/products.json'
-      )
-        .then((response) => response.json())
-        .then((json) => {
-          console.log(json.products);
-        });
+      const result = await axios.get(
+        'https://jsonplaceholder.typicode.com/todos/'
+      );
+      console.log(result.data);
     } catch {
       console.log('error');
-    } finally {
     }
   };
   const valueToShare = {
