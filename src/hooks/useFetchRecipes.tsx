@@ -16,7 +16,7 @@ export interface Product {
 
 const useFetchRecipes = () => {
   const [data, setData] = useState<Product[]>();
-  const [error, setError] = useState();
+  const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   //
   const reFetch = async (term: string) => {
@@ -24,17 +24,18 @@ const useFetchRecipes = () => {
     try {
       setIsLoading(true);
       //      const result = await fetch('https://jsonplaceholder.typicode.com/todos/')
-      const result = await fetch(
+      const response = await fetch(
         `https://api.spoonacular.com/food/products/search?query=${term}&apiKey=d8044c3a1b6d474393e403e882eb71a7`
-      )
-        .then((response) => response.json())
-        .then((json) => {
-          setIsLoading(false);
-          console.log(json.products);
-          setData(json.products);
-        });
+      );
+      if (!response.ok) {
+        setError('Error fetching data');
+        return error;
+      }
+      const retVal = await response.json();
+      console.log('in useFR', retVal);
+      setData(retVal.products);
     } catch {
-      console.log('error');
+      console.log('Error fetching data');
     } finally {
       setIsLoading(false);
     }

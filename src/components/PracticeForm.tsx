@@ -1,4 +1,4 @@
 const PracticeForm = () => {
-  return <div>helloooo pf</div>;
+  return <div className="border-2 w-3/6 m-auto text-center">helloooo pf</div>;
 };
 export default PracticeForm;

@@ -3,9 +3,17 @@ import Card from '../components/Card';
 import SearchBar from '../components/SearchBar';
 import BooksContext from '../context/BooksContext';
 import { useContext } from 'react';
+import useFetchURL from '../hooks/useFetchUrl';
 const Search = () => {
   const { data, isLoading, error, reFetch } = useFetchRecipes();
   const { books, fetch } = useContext(BooksContext);
+
+  const {
+    data: d0,
+    error: e0,
+    isLoading: i0,
+  } = useFetchURL('https://jsonplaceholder.typicode.com/todos/1');
+  console.log('in serach ', d0);
 
   // const handleSearch = () => {
   //   reFetch();
@@ -23,7 +31,7 @@ const Search = () => {
 
   const handleFetch = () => {
     console.log('calling fetch from ');
-    //reFetch('beef');
+    //dreFetch('beef');
   };
 
   return (
