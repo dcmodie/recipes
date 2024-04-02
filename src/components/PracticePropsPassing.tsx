@@ -39,10 +39,21 @@ const PracticePropsPassing_2: React.FC<PracticePropsType_0> = ({
   name,
   description,
 }) => {
-  //const { id, name, description } = props;
   return (
     <div>
       <div>PracticePropsPassing_2</div>
+      <div>
+        {id} {name} {description}
+      </div>
+    </div>
+  );
+};
+
+const PracticePropsPassing_3: React.FC<PracticePropsType_0> = (props) => {
+  const { id, name, description } = props;
+  return (
+    <div>
+      <div>PracticePropsPassing_3</div>
       <div>
         {id} {name} {description}
       </div>
@@ -53,4 +64,5 @@ export {
   PracticePropsPassing_0,
   PracticePropsPassing_1,
   PracticePropsPassing_2,
+  PracticePropsPassing_3,
 };
